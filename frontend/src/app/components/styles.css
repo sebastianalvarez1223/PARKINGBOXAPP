@@ -1,0 +1,61 @@
+.menu {
+  padding-top: 0px;
+  background-color: #223035;
+  color: white;
+  width: 250px;
+  height: calc(100vh - 70px); /* Ajusta según la altura real del navbar */
+  overflow: auto;
+  transition: width 0.3s ease;
+}
+
+.menu.closed {
+  width: 0;
+  overflow: hidden;
+}
+
+.toggle-button, .navbar-logout {
+  background-color: #bb0909;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.menu-list {
+  display: block;
+  padding: 10px;
+}
+
+.menu-list a, 
+.menu-list button { /* Aplica a los botones dentro de la lista */
+  color: white;
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+}
+
+
+.menu-list a:hover, 
+.menu-list button:hover {
+  color: #32dc49; /* Cambia el color al pasar el cursor */
+}
+
+.menu-list a.is-active {
+  color: #32dc32; /* Color del texto activo */
+}
+
+
+.navbar-logout:hover {
+  background-color: #990000;
+  transform: scale(1.05);
+}
+
+.sidebar-link {
+  color: #ffffff; /* Color de fondo específico para los enlaces del sidebar */
+}
+
+.sidebar-link:hover {
+  color: #32dc49;
+}
+
+.sidebar-link.is-active {
+  color: #32dc32;
+}

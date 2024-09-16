@@ -1,0 +1,22 @@
+-- Ejemplos de sentencias INSERT preparadas para la tabla 'areaparqueo'
+
+INSERT INTO areaparqueo (id, categoriaNamebh, categoriaId, ubicacion, capacidadArea, createdAt, updatedAt)
+VALUES (1, 'General Parking', 1, 'North Wing', 50, '2024-08-27 10:00:00', '2024-08-27 10:00:00');
+
+INSERT INTO areaparqueo (id, categoriaNamebh, categoriaId, ubicacion, capacidadArea, createdAt, updatedAt)
+VALUES (2, 'VIP Parking', 2, 'East Wing', 20, '2024-08-27 10:05:00', '2024-08-27 10:05:00');
+
+INSERT INTO areaparqueo (id, categoriaNamebh, categoriaId, ubicacion, capacidadArea, createdAt, updatedAt)
+VALUES (3, 'Staff Parking', 3, 'West Wing', 30, '2024-08-27 10:10:00', '2024-08-27 10:10:00');
+
+INSERT INTO areaparqueo (id, categoriaNamebh, categoriaId, ubicacion, capacidadArea, createdAt, updatedAt)
+VALUES (4, 'Guest Parking', 4, 'South Wing', 40, '2024-08-27 10:15:00', '2024-08-27 10:15:00');
+
+INSERT INTO areaparqueo (id, categoriaNamebh, categoriaId, ubicacion, capacidadArea, createdAt, updatedAt)
+VALUES (5, 'Reserved Parking', 5, 'Main Entrance', 10, '2024-08-27 10:20:00', '2024-08-27 10:20:00');
+
+INSERT INTO areaparqueo (id, categoriaNamebh, categoriaId, ubicacion, capacidadArea, createdAt, updatedAt)
+VALUES (6, 'Overflow Parking', 6, 'Remote Lot', 100, '2024-08-27 10:25:00', '2024-08-27 10:25:00');
+
+INSERT INTO areaparqueo (id, categoriaNamebh, categoriaId, ubicacion, capacidadArea, createdAt, updatedAt)
+VALUES (7, 'Delivery Parking', 7, 'Loading Dock', 15, '2024-08-27 10:30:00', '2024-08-27 10:30:00');

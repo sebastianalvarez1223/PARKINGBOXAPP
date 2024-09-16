@@ -1,0 +1,25 @@
+-- Ejemplos de consultas INNER JOIN entre 'areaparqueo' y 'vehiculo'
+
+-- Consulta 1: Obtener la ubicación y la placa de vehículos en 'General Parking'
+SELECT a.ubicacion, v.placa
+FROM areaparqueo a
+INNER JOIN vehiculo v ON a.id = v.areaBahia
+WHERE a.categoriaNamebh = 'General Parking';
+
+-- Consulta 2: Obtener la capacidad y la marca de vehículos en 'VIP Parking'
+SELECT a.capacidadArea, v.marca
+FROM areaparqueo a
+INNER JOIN vehiculo v ON a.id = v.areaBahia
+WHERE a.categoriaNamebh = 'VIP Parking';
+
+-- Consulta 3: Obtener la categoría y el nombre del dueño de vehículos en 'Staff Parking'
+SELECT a.categoriaNamebh, v.nombreDueño
+FROM areaparqueo a
+INNER JOIN vehiculo v ON a.id = v.areaBahia
+WHERE a.categoriaNamebh = 'Staff Parking';
+
+-- Consulta 4: Obtener todas las áreas de parqueo donde hay vehículos Toyota
+SELECT a.id, a.categoriaNamebh, v.placa
+FROM areaparqueo a
+INNER JOIN vehiculo v ON a.id = v.areaBahia
+WHERE v.marca = 'Toyota';

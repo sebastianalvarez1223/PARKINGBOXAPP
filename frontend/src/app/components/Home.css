@@ -1,0 +1,9 @@
+.fade-carousel-item {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .carousel-item.active.fade-carousel-item {
+    opacity: 1;
+  }
+  

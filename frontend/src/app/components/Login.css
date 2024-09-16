@@ -1,0 +1,48 @@
+/* Login.css */
+.hero-body {
+    background: url('/public/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    color: #fff; /* Texto blanco */
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+    color: #000;
+}
+
+.form-control:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    color: #000;
+}
+
+.btn {
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+}

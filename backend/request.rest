@@ -1,0 +1,227 @@
+//Create a user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Jhon",
+    "email": "jhon@gmail.com",
+    "password": "123456",
+    "confPassword":"123456",
+    "role": "admin"
+}
+
+###
+//Create a user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Javier Gil Sierra",
+    "email": "javier@gmail.com",
+    "password": "123456",
+    "confPassword":"123456",
+    "role": "admin"
+}
+
+###
+// get all Users
+GET http://localhost:5000/users
+
+###
+//Get Single User
+GET http://localhost:5000/users/dd4c0dd6-5d9a-4f3c-9e85-697aded8f84e
+
+###
+// Update a user
+PATCH  http://localhost:5000/users/ce4149d4-0009-420e-bd79-0a5671c23992
+Content-Type: application/json
+
+{
+    "name": "Javier Gil Updated",
+    "email": "javier@gmail.com",
+    "password": "",
+    "confPassword":"",
+    "role": "admin"
+}
+
+###
+// delete a user
+DELETE http://localhost:5000/users/3cd0b82f-0c81-49af-8705-c60c72045f11
+
+###
+// Login User
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+   "email": "jhon@gmail.com",
+    "password": "123456"
+}
+
+
+
+###
+GET http://localhost:5000/me
+
+###
+DELETE http://localhost:5000/logout
+
+
+
+###
+//crear categoria
+POST http://localhost:5000/categorias
+Content-Type: application/json
+
+{
+    "nombreCategoria": "Vehiculo",
+    "tarifa": 60
+}
+
+###
+//obtener todas las categoria
+GET http://localhost:5000/categorias
+
+### 
+//Obtener categoría específica
+GET http://localhost:5000/categorias/1
+Content-Type: application/json
+
+###
+//actualizar categoria
+PATCH  http://localhost:5000/categorias/1
+Content-Type: application/json
+
+{
+    "nombreCategoria": "Carros",
+    "tarifa": 65
+}
+
+###
+//eliminar categoria
+DELETE http://localhost:5000/categorias/2
+
+###
+//crear vehiculo
+POST http://localhost:5000/vehiculos
+Content-Type: application/json
+
+{
+    "categoriaId": 1 ,
+    "areaBahia": 1 ,
+    "marca": "Ford skelyen GTR",
+    "placa": "OOP-821",
+    "nombreDueño": "jose",
+    "descripcion": "verde"
+}
+
+
+###
+// Crear un nuevo Vehículo
+POST http://localhost:5000/vehiculos
+Content-Type: application/json
+
+{ 
+  "categoriaId": 1,
+  "areaBahia": 1,
+  "marca": "Ford",
+  "placa": "FÑK-768",
+  "nombreDueño": "Juan Pérez",
+  "descripcion": "Auto color rojo"
+}
+
+
+
+
+### 
+//Obtener vehículo específico
+GET http://localhost:5000/vehiculos/9cba356f-d1bc-47e1-a7cc-45d30459ddb2
+Content-Type: application/json
+
+
+
+
+###
+//actualizar vehiculo
+PATCH  http://localhost:5000/vehiculos/4022f7ee-5cab-4810-abcb-071426041488
+Content-Type: application/json
+
+{
+    "categoriaId": 1,
+    "areaBahia": 1,
+    "marca": "Toyota",
+    "placa": "BRE-192",
+    "nombreDueño": "Javier update",
+    "descripcion": "Verde Claro"
+}
+
+###
+//eliminar vehiculo
+DELETE http://localhost:5000/vehiculos/37d3e29b-3af7-403f-8b59-0140b6eb0366
+
+###
+//obtener todos los vehiculos
+GET http://localhost:5000/vehiculos
+
+### 
+//Calcular el pago de estacionamiento
+GET http://localhost:5000/vehiculos/9cba356f-d1bc-47e1-a7cc-45d30459ddb2/salida
+Content-Type: application/json
+
+### 
+//Reingresar Vehículo
+PATCH http://localhost:5000/vehiculos/9cba356f-d1bc-47e1-a7cc-45d30459ddb2/reingresarVehiculo
+Content-Type: application/json
+
+{
+  "nombreDueño": "Carlos Pérez Antonio"
+}
+
+
+
+###
+//Crear area parqueo
+POST http://localhost:5000/areasParqueo
+Content-Type: application/json
+
+{
+    "categoriaNamebh": "Area Carros",
+    "categoriaId": 1,
+    "ubicacion": "Bahia Carros",
+    "capacidadArea": 20
+}
+
+
+
+###
+//Obtener todas las areas parqueo
+GET http://localhost:5000/areasParqueo
+
+###
+//Obtener area parqueo especifico
+GET http://localhost:5000/areasParqueo/2
+Content-Type: application/json
+
+###
+//Actualizar área de parqueo
+PATCH http://localhost:5000/areasParqueo/4
+Content-Type: application/json
+
+{
+     "categoriaNamebh": "Area Carros Carga Pesada",
+    "categoriaId": 4,
+    "ubicacion": "Bahia Carros Carga Pesad",
+    "capacidadArea": 20
+}
+
+###
+//Eliminar área de parqueo
+DELETE http://localhost:5000/areasParqueo/4
+
+###
+//Actualizar área de parqueo
+###
+# Prueba para actualizar la capacidad de un área de parqueo
+PATCH  http://localhost:5000/updateCapacity/1
+Content-Type: application/json
+

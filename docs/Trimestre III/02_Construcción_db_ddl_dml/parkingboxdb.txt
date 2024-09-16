@@ -1,0 +1,248 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 27-08-2024 a las 15:15:08
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `parkingboxdb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `areaparqueo`
+--
+
+CREATE TABLE `areaparqueo` (
+  `id` int(11) NOT NULL,
+  `categoriaNamebh` varchar(255) NOT NULL,
+  `categoriaId` int(11) NOT NULL,
+  `ubicacion` varchar(255) NOT NULL,
+  `capacidadArea` int(11) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `areaparqueo`
+--
+
+INSERT INTO `areaparqueo` (`id`, `categoriaNamebh`, `categoriaId`, `ubicacion`, `capacidadArea`, `createdAt`, `updatedAt`) VALUES
+(1, 'Área Carros', 1, 'Bahía Carros', 40, '2024-08-22 14:18:34', '2024-08-23 15:08:15'),
+(2, 'Área Motocicletas', 2, 'Bahía Motocicletas ', 30, '2024-08-22 14:31:04', '2024-08-23 14:56:06'),
+(3, 'Área Bicicletas', 3, 'Bahía Bicicletas  ', 25, '2024-08-22 14:32:41', '2024-08-23 15:05:13');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categoria`
+--
+
+CREATE TABLE `categoria` (
+  `id` int(11) NOT NULL,
+  `nombreCategoria` varchar(255) NOT NULL,
+  `tarifa` float NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `nombreCategoria`, `tarifa`, `createdAt`, `updatedAt`) VALUES
+(1, 'Carros', 20, '2024-08-22 14:17:44', '2024-08-24 22:23:02'),
+(2, 'Motocicletas ', 15, '2024-08-22 14:28:59', '2024-08-22 14:28:59'),
+(3, 'Bicicletas ', 10, '2024-08-22 14:29:21', '2024-08-22 14:29:21');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `sid` varchar(36) NOT NULL,
+  `expires` datetime DEFAULT NULL,
+  `data` text DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `sessions`
+--
+
+INSERT INTO `sessions` (`sid`, `expires`, `data`, `createdAt`, `updatedAt`) VALUES
+('d2M92OsCIbqGWoqECmYM_zBg0vgOLoJk', '2024-08-28 12:01:59', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"04b7296b-01a9-4f50-928e-0cc356437841\"}', '2024-08-27 12:01:40', '2024-08-27 12:01:59'),
+('DpeJqdD8cViCCVe_hEKqaIbplgB4RpnK', '2024-08-28 12:01:40', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2024-08-27 12:01:40', '2024-08-27 12:01:40'),
+('fAICOwIZXcSsBAB7xW1Iwxoiwhxd1Hf5', '2024-08-28 12:01:14', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2024-08-27 12:01:14', '2024-08-27 12:01:14');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `uuid` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `uuid`, `name`, `email`, `password`, `role`, `createdAt`, `updatedAt`) VALUES
+(1, '5f653076-90e1-41a0-adee-394598ed3a1b', 'Sebastián Alvarez', 'jhon@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$BpZMv97nuSIK9iQovyK51g$9IEytcNPXJJrwBddX6QMP/emSTshxBW6BJBhStNc0/E', 'admin', '2024-08-22 14:16:51', '2024-08-24 21:26:45'),
+(2, '30353e12-ad40-48a3-93ec-3c2b22117739', 'Javier Gil Sierra', 'javier@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$JZkiGFLC0M0o3DhUX7qH6w$XFdv44eH0N2yp1V26DeL6VgweSksg6dyQA6p9gMy9w0', 'admin', '2024-08-22 20:36:56', '2024-08-22 20:36:56'),
+(3, '04b7296b-01a9-4f50-928e-0cc356437841', 'Martin Muñoz ', 'martin@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$C2YoPPtC0Xu42AvI7/JdDA$4/QlaaknyTmXEoyk7E6hNRvZF8XyisoL9YrlrKuICLw', 'User', '2024-08-23 00:29:48', '2024-08-26 03:16:59');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vehiculo`
+--
+
+CREATE TABLE `vehiculo` (
+  `id` int(11) NOT NULL,
+  `uuid` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `categoriaId` int(11) NOT NULL,
+  `areaBahia` int(11) NOT NULL,
+  `marca` varchar(255) NOT NULL,
+  `placa` varchar(255) NOT NULL,
+  `nombreDueño` varchar(255) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `userUuid` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `userId` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `TiempoIngreso` datetime NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`id`, `uuid`, `categoriaId`, `areaBahia`, `marca`, `placa`, `nombreDueño`, `descripcion`, `userUuid`, `userId`, `status`, `TiempoIngreso`, `createdAt`, `updatedAt`) VALUES
+(1, '30e13734-4ed2-4d5d-9fb0-d479d25202f8', 1, 1, 'Ford Escape', 'UUJ-669', 'Sebastián Medina ', 'Negro Oscuro', '5f653076-90e1-41a0-adee-394598ed3a1b', 1, 1, '2024-08-23 15:07:30', '2024-08-22 14:19:16', '2024-08-23 15:08:15'),
+(2, '541a40ec-9ea5-4b7e-8467-2e0078c6813a', 1, 1, 'Dodge', 'FFH-876', 'Andres', 'Amarillo', '5f653076-90e1-41a0-adee-394598ed3a1b', 1, 1, '2024-08-23 00:28:37', '2024-08-23 00:25:43', '2024-08-23 11:54:41'),
+(3, '7162df0a-7577-4c5e-a851-112a1273cb6a', 1, 1, 'Mercedes Benz ', 'CBM-405', 'Miguel', 'Blanco gris', '04b7296b-01a9-4f50-928e-0cc356437841', 3, 1, '2024-08-23 12:26:01', '2024-08-23 12:26:01', '2024-08-23 12:33:09'),
+(4, '92058df3-c142-4f3e-b0d4-e69af994bf2d', 2, 2, 'Yamaha ', 'EFR-765', 'Stiven Muñoz ', 'Azul oscuro', '04b7296b-01a9-4f50-928e-0cc356437841', 3, 1, '2024-08-23 12:30:55', '2024-08-23 12:30:55', '2024-08-23 14:54:08'),
+(5, '542ad7b0-923f-4c1c-b009-92790a0d4031', 3, 3, 'Monark ', 'SWV-420', 'Sebastian Medina', 'Verde Osuro', '04b7296b-01a9-4f50-928e-0cc356437841', 3, 1, '2024-08-23 12:32:44', '2024-08-23 12:32:44', '2024-08-23 15:05:13');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `areaparqueo`
+--
+ALTER TABLE `areaparqueo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `categoriaId` (`categoriaId`);
+
+--
+-- Indices de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uuid` (`uuid`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indices de la tabla `vehiculo`
+--
+ALTER TABLE `vehiculo`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uuid` (`uuid`),
+  ADD UNIQUE KEY `placa` (`placa`),
+  ADD KEY `categoriaId` (`categoriaId`),
+  ADD KEY `areaBahia` (`areaBahia`),
+  ADD KEY `userUuid` (`userUuid`),
+  ADD KEY `userId` (`userId`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `areaparqueo`
+--
+ALTER TABLE `areaparqueo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `vehiculo`
+--
+ALTER TABLE `vehiculo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `areaparqueo`
+--
+ALTER TABLE `areaparqueo`
+  ADD CONSTRAINT `areaparqueo_ibfk_1` FOREIGN KEY (`categoriaId`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `vehiculo`
+--
+ALTER TABLE `vehiculo`
+  ADD CONSTRAINT `vehiculo_ibfk_1` FOREIGN KEY (`categoriaId`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `vehiculo_ibfk_2` FOREIGN KEY (`areaBahia`) REFERENCES `areaparqueo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `vehiculo_ibfk_3` FOREIGN KEY (`userUuid`) REFERENCES `user` (`uuid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `vehiculo_ibfk_4` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
